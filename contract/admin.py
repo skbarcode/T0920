@@ -24,8 +24,8 @@ class clientAdmin(admin.ModelAdmin):
 
 @admin.register(unit)
 class unitAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', ]
-    list_display_links = ['name']
+    def changelist_view(self, request, extra_context=None):
+        return unit_views(request)
 
 
 @admin.register(Brand)
@@ -64,10 +64,10 @@ class payment_infoAdmin(admin.ModelAdmin):
     list_display_links = ['name']
 
 
-@admin.register(contract_info)
-class contract_infoAdmin(admin.ModelAdmin):
-    def changelist_view(self, request, extra_context=None):
-        return contract_info_views(request)
+# @admin.register(contract_info)
+# class contract_infoAdmin(admin.ModelAdmin):
+#     def changelist_view(self, request, extra_context=None):
+#         return contract_info_views(request)
 
 
 admin.site.site_header = '斯康企业管理平台0.1'

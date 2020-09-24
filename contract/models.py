@@ -196,3 +196,15 @@ class contract_info(models.Model):
     class Meta:
         verbose_name = '合同信息'
         verbose_name_plural = '合同信息'
+
+class Model_record(models.Model):
+    sk_model = models.CharField(max_length=32,verbose_name='公司型号')
+    sp_model = models.CharField(max_length=32,verbose_name='供应商型号')
+    supplier = models.ForeignKey(Supplier,verbose_name='供应商',on_delete=models.CASCADE)
+    meno = models.CharField(max_length=128,verbose_name='备注',blank=True,null=True)
+
+    def __str__(self):
+        return self.sk_model
+    class Meta:
+        verbose_name='型号登记'
+        verbose_name_plural ='型号登记'
