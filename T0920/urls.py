@@ -18,7 +18,7 @@ from django.urls import path
 from contract import views
 
 urlpatterns = [
-    path('admin/unit/', views.unit_views),
+    path('admin/contract_info/', views.contract_info_views),
     path('admin/', admin.site.urls),
 ]
 
